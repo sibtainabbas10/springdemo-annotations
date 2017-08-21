@@ -11,4 +11,9 @@ public class FootballCoach implements ICoach {
     public String getDailyWorkout() {
         return "Practice dribbling for 20 minutes";
     }
+
+    @Override
+    public String getDailyFortune() {
+        return null;
+    }
 }

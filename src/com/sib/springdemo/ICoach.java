@@ -5,4 +5,5 @@ package com.sib.springdemo;
  */
 public interface ICoach {
     public String getDailyWorkout();
+    public String getDailyFortune();
 }
