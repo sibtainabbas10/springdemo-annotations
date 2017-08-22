@@ -1,6 +1,7 @@
 package com.sib.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 // Default bean name - tennisCoach
@@ -12,6 +13,7 @@ public class TennisCoach implements ICoach {
 
     // Field Injection
     @Autowired
+    @Qualifier("randomFortuneService")
     private IFortuneService fortuneService;
 
     // define a default constructor
@@ -19,19 +21,30 @@ public class TennisCoach implements ICoach {
         System.out.println(">> TennisCoach: inside default constructor");
     }
 
-    // Setter injection
 /*
+    // Constructor injection
     @Autowired
-    public void doSomeCrazyStuff(IFortuneService fortuneService) {
-        System.out.println(">> TennisCoach: inside doSomeCrazyStuff() method");
+    public TennisCoach(IFortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 */
 
 /*
-    // Constructor injection
     @Autowired
-    public TennisCoach(IFortuneService fortuneService) {
+    // Constructor injection - dependency has multiple implementations
+    public TennisCoach(@Qualifier("randomFortuneService") IFortuneService theFortuneService) {
+
+        System.out.println(">> TennisCoach: inside constructor using @autowired and @qualifier");
+
+        fortuneService = theFortuneService;
+    }
+*/
+
+/*
+    // Setter injection
+    @Autowired
+    public void doSomeCrazyStuff(IFortuneService fortuneService) {
+        System.out.println(">> TennisCoach: inside doSomeCrazyStuff() method");
         this.fortuneService = fortuneService;
     }
 */
