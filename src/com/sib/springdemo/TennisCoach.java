@@ -2,6 +2,7 @@ package com.sib.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 // Default bean name - tennisCoach
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Component;
 // it automatically registers the bean in the
 // Spring Container
 @Component
+// Define bean scope (singleton, prototype)
+@Scope("prototype")
 public class TennisCoach implements ICoach {
 
     // Field Injection
