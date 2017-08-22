@@ -13,7 +13,7 @@ public class TennisCoach implements ICoach {
 
     // Field Injection
     @Autowired
-    @Qualifier("randomFortuneService")
+    @Qualifier("randomFileFortuneService")
     private IFortuneService fortuneService;
 
     // define a default constructor
