@@ -3,6 +3,8 @@ package com.sib.springdemo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Random;
 
 /**
@@ -16,12 +18,19 @@ public class RandomFileFortuneService implements IFortuneService {
 
     private String[] fortunesArray;
 
-    private Random rand = new Random();;
+    private Random rand;
 
     @Override
     public String getDailyFortune() {
-        fortunesArray = fortunesString.split(",");
         int index = rand.nextInt(fortunesArray.length);
         return fortunesArray[index];
+    }
+
+    // define my init method
+    @PostConstruct
+    public void doMyStartupStuff() {
+        System.out.println(">> RandomFileFortuneService: inside of doMyStartupStuff()");
+        rand = new Random();
+        fortunesArray = fortunesString.split(",");
     }
 }
