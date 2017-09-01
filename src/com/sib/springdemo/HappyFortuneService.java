@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 public class HappyFortuneService implements IFortuneService {
     @Override
     public String getDailyFortune() {
-        return "Today is your lucky day!";
+        return "Today is a happy day!";
     }
 }
